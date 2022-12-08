@@ -4,6 +4,9 @@
     overflow: hidden;
     background: var(--color-primary-dark);
     color: var(--color-accent);
+    border-color: red;
+    border-width: 10 px;
+    border-style: solid;
 }
 
 .mvl-character-card__image-container{

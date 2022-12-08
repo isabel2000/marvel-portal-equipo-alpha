@@ -1,7 +1,12 @@
-export default function Filter() {
+
+export default function filter() {
   return (
-    <div className="mvl-character-gri-filters">
-      <input type="text" placeholder="search" />
+  <div className="mvl-character-gri-filters">    
+  <input type="text" placeholder="SEARCH"/> 
     </div>
   );
 }
+
+
+
+
