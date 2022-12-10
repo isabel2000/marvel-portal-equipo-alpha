@@ -7,9 +7,11 @@
     border-color: red;
     border-width: 10 px;
     border-style: solid;
+    border-bottom-right-radius: 30px;
+  
 }
 
-.mvl-character-card__image-container{
+.mvl-character-card__image-container:hover{
     background: black;
     height: 50%;
     position: relative;
@@ -17,11 +19,21 @@
         content: '';
         width: 100%;
         height: 5px;
-        background: red;
+        background:red;
         position: absolute;
-        bottom: -5px;
+        bottom:0;
         z-index: 2;
+        
     }
+   
+}
+
+
+
+    
+
+.mvl-card-body-is-sliding{
+ 
 }
 
 .mvl-character-card__image{
@@ -30,6 +42,7 @@
     object-fit: cover;
     object-position: left bottom;
     transform: scaleX(1);
+    // transition: 5s;
 }
 
 .mvl-character-card__body{
