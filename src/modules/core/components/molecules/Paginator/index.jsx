@@ -70,3 +70,5 @@ function getFlooredToatalPages(totalItems, pageSize) {
 function getToatalPages(totalItems, pageSize) {
   return totalItems / pageSize;
 }
+
+

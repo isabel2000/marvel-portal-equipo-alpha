@@ -8,6 +8,7 @@ import Paginator from '@/modules/core/components/molecules/Paginator';
 import './styles.scss';
 import Filter from '@/modules/core/components/molecules/Filter';
 
+
 const INITIAL_PAGE = 1;
 const ITEMS_PER_PAGE = 24;
 
@@ -85,3 +86,4 @@ const CharacterGridSkeleton = ({ amount }) => {
   const items = [...Array(amount).keys()];
   return items.map((value) => <CharacterCard key={value} isSkeleton />);
 };
+

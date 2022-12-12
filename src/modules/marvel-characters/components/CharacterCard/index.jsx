@@ -10,9 +10,9 @@ CharacterCard.propTypes = {
 export default function CharacterCard({ image, name, isSkeleton }) {
   return (
     <div className="mvl-character-card" data-is-skeleton={isSkeleton}>
-      <div className="mvl-character-card__image-container"> 
+      <div className="mvl-character-card__image-container">
         <img className="mvl-character-card__image" src={image} alt="" />
-        
+
         <div className="mvl-card-body-is-sliding"></div>
       </div>
       <div className="mvl-character-card__body">
