@@ -13,7 +13,7 @@ const ITEMS_PER_PAGE = 24;
 
 export default function CharacterGridPaginated() {
   const [totalItems, setTotalItems] = useState(0);
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState([1]);
   const [isLoading, setLoading] = useState(false);
   const [queryParams, setQueryParams] = useState({});
 
@@ -85,3 +85,4 @@ const CharacterGridSkeleton = ({ amount }) => {
   const items = [...Array(amount).keys()];
   return items.map((value) => <CharacterCard key={value} isSkeleton />);
 };
+

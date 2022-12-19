@@ -1,8 +1,10 @@
 .mvl-main-footer{
-    height: 400px;
+    height: 2000px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--color-primary-dark);
     color: var(--color-accent);
+    opacity: 1; 
+    transition: opacity 0.2s linear 0s;
 }
