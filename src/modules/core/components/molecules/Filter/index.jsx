@@ -12,12 +12,22 @@ import './styles.scss';
 
 // import {AiFillCaretDown} from "react-icons/ai";
 function OnChangeName(text){
-  const name={
-    nameStartsWith:text
-  }
+  const resultsElem = document.getElementById('autocomplete-results')
   const order="";
   const itemsPerPage=24;
   const root3 = ReactDOM.createRoot(document.getElementById('container-grid'));
+
+  const name={
+    nameStartsWith:text
+  }
+  
+  if (text.length == 0){
+    resultsElem.classList.add('hidden');
+    return root3.render(
+      <CharacterGridPaginated name={text} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
+    );
+  }
+
   root3.render(
     <CharacterGridPaginated name={name} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
   );
