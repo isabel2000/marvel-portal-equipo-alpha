@@ -1,47 +1,91 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactDOM from 'react-dom/client';
-import CharacterGridPaginated from '@/modules/marvel-characters/components/CharacterGrid/index';
+import  CharacterGridPaginated  from '@/modules/marvel-characters/components/ItemGrid/index';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { ItemsName } from 'src/modules/marvel-characters/components/CharacterGrid/itemnsName';
+import { ItemsName } from 'src/modules/marvel-characters/components/ItemInfo/itemnsName';
 import ButtonArrow from '../Filter_series';
 import { useState } from 'react';
+import {AiOutlineArrowRight} from 'react-icons/ai'
+import {Dropdown, DropdownMenu, DropdownToggle, DropdownItem} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.scss';
+
 // import {AiFillCaretDown} from "react-icons/ai";
-function OnChangeName(text) {
-  const resultsElem = document.getElementById('autocomplete-results');
+function OnChangeName(text){
+  const resultsElem = document.getElementById('autocomplete-results')
+  const order="";
+  const itemsPerPage=24;
   const root3 = ReactDOM.createRoot(document.getElementById('container-grid'));
-  const name = {
-    nameStartsWith: text
-  };
 
-
-  if (text.length == 0) {
+  const name={
+    nameStartsWith:text
+  }
+  
+  if (text.length == 0){
     resultsElem.classList.add('hidden');
-    return root3.render(<CharacterGridPaginated name={text} domain={`characters`} />);
+    return root3.render(
+      <CharacterGridPaginated name={text} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
+    );
   }
 
-  root3.render(<CharacterGridPaginated name={name} domain={`characters`} />);
+  root3.render(
+    <CharacterGridPaginated name={name} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
+  );
+}
+
+function OnChangeOrder(){
+  const name="";
+  const order={
+    orderBy:"-name"
+  };
+  const itemsPerPage=24;
+  const root3 = ReactDOM.createRoot(document.getElementById('container-grid'));
+  root3.render(
+    <CharacterGridPaginated name={name} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
+  );
+}
+function OnChangeOrder2(){
+  const name="";
+  const order={
+    orderBy:"name"
+  };
+  const itemsPerPage=24;
+  const root3 = ReactDOM.createRoot(document.getElementById('container-grid'));
+  root3.render(
+    <CharacterGridPaginated name={name} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
+  );
 }
 
 export default function Filter() {
   const domain=`characters`
   const [text, setText]=useState("");
+  const [toggle, setToggle] = useState(false);
 
   
   const results=ItemsName({domain});
   
   const inputElem= document.getElementById("input-search");
   const resultsElem=document.getElementById("autocomplete-results");
+  const onChangeValue=((e)=>{
+    setText(e.target.value);
+  })
+ 
+  if(text.length>2){
+    autoComplete()
+  };
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
-
-  async function autoComplete() {
-    const valueInput = inputElem.value;
-    const resultados = results.filter((result) => {
-      return result.name.toLowerCase().startsWith(valueInput.toLowerCase());
+  async function autoComplete(){
+    const valueInput=inputElem.value;
+    const resultados =results.filter((result)=>{
+      return result.name.toLowerCase().startsWith(valueInput.toLowerCase())
     });
-    resultsElem.innerHTML = resultados
-      .map((result, index) => {
-        const isSelected = index === 0;
-        return `
+    const resultsElem=document.getElementById("autocomplete-results");
+    resultsElem.innerHTML = resultados.map((result, index) => {
+      const isSelected = index === 0;
+      return `
         <li
           id='autocomplete-result-${index}'
           class='autocomplete-result${isSelected ? ' selected' : ''}'
@@ -50,74 +94,77 @@ export default function Filter() {
         >
           ${result.name}
         </li>
-      `;
-      })
-      .join('');
-    resultsElem.classList.remove('hidden');
-
-    if (text.length === 0) {
-      resultsElem.classList.add('hidden');
-    }
+      `
+        }).join('');
+        resultsElem.classList.remove('hidden');
   }
-
-  const onChangeValue = (e) => {
-    setText(e.target.value);
-  };
-
-  if (text.length > 2) {
-    autoComplete();
-  }
-
-
-  const handleResultClick = (event) => {
+  const handleResultClick=((event)=> {
     if (event.target && event.target.nodeName === 'LI') {
-      selectItem(event.target);
+      selectItem(event.target)
     }
-  };
-
-  const selectItem = (e) => {
+  })
+  
+  const selectItem=((e) =>{
     if (e) {
       inputElem.value = e.innerText;
       hideResults();
-      OnChangeName(e.innerText);
+      OnChangeName(e.innerText)
     }
-  };
-
-  const hideResults = () => {
+  })
+  
+  const hideResults=(()=> {
     resultsElem.innerHTML = '';
     resultsElem.classList.add('hidden');
-  };
-
-  const handler = (e) => {
-    if (e.key == 'Enter') {
-      OnChangeName(text);
-    }
-  };
+  })
+ 
+  const handler=((e)=>{if(e.key=="Enter"){
+    OnChangeName(text);
+  }})
   return (
     <>
-      <div className="mvl-character-gri-filters">
-        <input
-          className="mvl-container-search-left"
-          id="input-search"
-          type="text"
-          value={text}
-          onChange={onChangeValue}
-          onKeyDown={handler}
-          placeholder="SEARCH"
-          aria-label="Search"
-          aria-autocomplete="both"
-        />
-        <FontAwesomeIcon icon={faMagnifyingGlass} className="search-container__icon" />
-        <ul
-          id="autocomplete-results"
-          role="listbox"
-          aria-label="Search"
-          onClick={handleResultClick}></ul>
+      <div className="items-grid-filters_2">
+        <div className="container-input-search">
+          <div className="input-search">
+            <input 
+              className="mvl-container-search-left" 
+              id="input-search" type="text" 
+              value={text} 
+              onChange={onChangeValue} 
+              onKeyDown={handler} 
+              placeholder="Search"  
+              aria-label='Search'
+              aria-autocomplete='both'
+            />
+            <FontAwesomeIcon icon={faMagnifyingGlass} onClick={()=>OnChangeName(text)} className="search-container__icon" />
+          </div>
+          <ul
+            id='autocomplete-results'
+            role='listbox'
+            aria-label='Search'
+            onClick={handleResultClick}
+          >
+          </ul>
+        </div>
 
         <div className="container-checked-two">
-          <ButtonArrow />
+          <ButtonArrow/>
+      
+
+          <div className='order'>
+            <Dropdown isOpen={toggle} toggle={handleToggle} >
+              <DropdownToggle caret>
+                A <AiOutlineArrowRight /> Z
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem onClick={OnChangeOrder}> Z <AiOutlineArrowRight /> A </DropdownItem>
+                <DropdownItem onClick={OnChangeOrder2}> A <AiOutlineArrowRight /> Z</DropdownItem>
+              </DropdownMenu>
+            
+            </Dropdown>
+          </div>
         </div>
       </div>
+      
     </>
   );
 }
