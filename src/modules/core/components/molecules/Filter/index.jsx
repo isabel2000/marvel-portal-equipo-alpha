@@ -10,7 +10,7 @@ import {Dropdown, DropdownMenu, DropdownToggle, DropdownItem} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.scss';
 
-// import {AiFillCaretDown} from "react-icons/ai";
+
 function OnChangeName(text){
   const name={
     nameStartsWith:text

@@ -1,7 +1,11 @@
 import './styles.scss';
 import React from 'react';
 import { ItemsName } from '../ItemInfo/itemnsName';
+import PropTypes from 'prop-types';
 
+FeaturedGrid.propTypes = {
+  id: PropTypes.number
+}
 export function FeaturedGrid({id}) {
   const domain="characters/"+id+"/comics";
   //1009368,1011027,1010733 1011299  1010794 1009268 ironcap star guadia spidi deadpool
@@ -10,7 +14,7 @@ export function FeaturedGrid({id}) {
   return (
     <div className='featured-comics'>
       <h1>FEATURED COMICS</h1>
-      <section className='slider'>
+      <section className='slider-featured'>
         
         <div className='featured-comics-items'>
           {comics.map((item)=>(
@@ -26,7 +30,6 @@ export function FeaturedGrid({id}) {
           ))}
         
         </div>
-        
 
       </section>
     </div>

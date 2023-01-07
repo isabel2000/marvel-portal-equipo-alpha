@@ -33,7 +33,6 @@ export function CharacterCard({ image, name, description, isSkeleton, domain, ur
             </div>
             <div className="mvl-character-card__body">
               <h4 className="u-no-margin">{name}</h4>
-              <br></br>
               <h5 className="u-no-margin">{subName(name)}</h5>
             </div>
           </div>

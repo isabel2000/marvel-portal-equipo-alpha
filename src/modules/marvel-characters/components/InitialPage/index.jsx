@@ -16,18 +16,15 @@ export function DefaultPage({domain,id}) {
 
   return (
     <div className="mvl-items-page">
-      <header className="mvl-items-page-header">
-        <h1 className="u-no-margin">MARVELS CHARACTERS</h1>
-        <p>Get a list of all Marvels characters and villians</p>
-      </header>
 
       <div className="container">
         <FeaturedGrid id={id}/>
         <h1>MARVEL  {domain} list</h1>
         <Filter /> 
       </div>
-      
+
       <CharacterGridPaginated domain={domain} name={name} order={order} itemsPerPage={itemsPerPage}/>
+
     </div>
   );
 }
