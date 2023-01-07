@@ -86,11 +86,19 @@ figcaption{
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.mvl-featuredCharacters-card-section {
-    width: 100%;
-    display: block;
-    gap: 10px;
-    grid-template-columns: repeat(6, minmax(15%, 1fr));
+.mvl-featuredCharacters-card-container{
+    width: 90%;
+    display:block;
+    margin: auto;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+.mvl-featuredCharacters-card-section{
+    display:flex;
+    gap: 15px;
+    margin: 10px;
+
 }
 .featured-container{
     display: block;
@@ -104,6 +112,7 @@ figcaption{
     gap: 10px;
     background: rgb(10, 10, 10);
     color: white;
+    border-radius: 5px;
     border-bottom-right-radius: 50px;
     margin-bottom: 10px;
 }
@@ -146,3 +155,18 @@ figcaption{
         transition: 0.3s ease-in-out ;
     }
 }
+
+
+
+.mvl-items-page-header {
+    background-image: url('/assets/images/characters_banner.jpeg');
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 0 10px 10px rgba(8, 8, 8, 0.24);
+    margin-top: 10px;
+  }

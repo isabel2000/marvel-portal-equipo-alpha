@@ -3,7 +3,7 @@ import { DefaultPage } from '../../components/InitialPage';
 
 function ComicsPage() {
   const domain='comics';
-  const id=1009368;
+  const id=1009652;
   return(
     <DefaultPage
       domain={domain} 

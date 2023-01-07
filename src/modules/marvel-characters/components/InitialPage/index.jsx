@@ -15,12 +15,7 @@ export function DefaultPage({domain,id}) {
   const order="";
 
   return (
-    <div className="mvl-items-page">
-      <header className="mvl-items-page-header">
-        <h1 className="u-no-margin">MARVELS CHARACTERS</h1>
-        <p>Get a list of all Marvels characters and villians</p>
-      </header>
-
+    <div className="mvl-items-page">    
       <div className="container">
         <FeaturedGrid id={id}/>
         <h1>MARVEL CHARACTER LIST</h1>
