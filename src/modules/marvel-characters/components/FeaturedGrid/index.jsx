@@ -114,6 +114,7 @@ export function FeaturedCharacter(){
               <h5 className="u-no-margin">Namor</h5>
             </div>
           </div>
+
         </section>
     </div>
   </>
