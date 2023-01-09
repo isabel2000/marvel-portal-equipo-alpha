@@ -45,6 +45,7 @@ a:link, a:visited, a:active {
 .mvl-character-card__body h4{
   font-size: 16px;
   color:whitesmoke;
+  height: 50px;
   padding: 5px;
   font-weight: 200;
   font-family: 'Roboto Condensed', sans-serif;
@@ -76,4 +77,14 @@ a:link, a:visited, a:active {
     border-bottom-right-radius: 50px;
     transition: 0.3s ease-in-out ;
 }
+}
+.sub-name{
+  font-size: 20px;
+  font-family: 'roboto';
+  color: white;
+  font-weight: 1000; 
+}
+
+.mvl-character-card__height{
+  height: 270px;
 }

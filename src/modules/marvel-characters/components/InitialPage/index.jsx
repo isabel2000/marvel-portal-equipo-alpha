@@ -13,12 +13,13 @@ export function DefaultPage({domain,id}) {
   const name={};
   const itemsPerPage = 24;
   const order="";
+  const nameList = domain.toUpperCase();
 
   return (
     <div className="mvl-items-page">    
       <div className="container">
         <FeaturedGrid id={id}/>
-        <h1>MARVEL CHARACTER LIST</h1>
+        <h1>MARVEL {nameList} LIST</h1>
         <Filter /> 
       </div>
       

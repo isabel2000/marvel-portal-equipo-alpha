@@ -12,14 +12,14 @@ FeaturedGrid.propTypes = {
 
 export function FeaturedGrid({id}) {
   const domain="characters/"+id+"/comics";
-  //1009368,1011027,1010733 1011299  1010794 1009268 ironcap star guadia spidi deadpool
   const comics=ItemsName({domain})
+  
 
   return (
     <div >
 
       <div className="featured-comics">
-        <h1>FEATURED COMICS</h1>
+        <h1>FEATURED COMICS </h1>
         <section className='slider'>
           
           <div className='featured-comics-items'>
@@ -112,6 +112,18 @@ export function FeaturedCharacter(){
             </div>
             <div className="mvl-featuredCharacters-card__body">
               <h5 className="u-no-margin">Namor</h5>
+            </div>
+          </div>
+          <div className="mvl-featuredCharacters-card">
+            <div className="mvl-featuredCharacters-card__image-container">
+              <img
+                className="mvl-featuredCharacters-card__image"
+                src={img(`./Queen_Ramonda.jpg`)}
+                alt="imagen de Queen Ramonda"
+              />
+            </div>
+            <div className="mvl-featuredCharacters-card__body">
+              <h5 className="u-no-margin">Queen Ramonda</h5>
             </div>
           </div>
 

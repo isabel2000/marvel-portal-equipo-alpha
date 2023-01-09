@@ -18,7 +18,7 @@ export default function CharacterGridPaginated({itemsPerPage, domain, name, orde
   const [totalItems, setTotalItems] = useState(0);
   const [characters, setCharacters] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  console.log(itemsPerPage)
+ 
   useEffect(() => {
     fetchCharactersAtPage();
   },[]);
@@ -29,12 +29,7 @@ export default function CharacterGridPaginated({itemsPerPage, domain, name, orde
       setTotalItems(data.total);
       setCharacters(data.results);
       setLoading(false);
-      console.log('data.results');
-      console.log(data.results);
-
-
   }
-  
 
   const onPageChange = (newPage) => {
     fetchCharactersAtPage(newPage);

@@ -10,7 +10,7 @@ import {Dropdown, DropdownMenu, DropdownToggle, DropdownItem} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.scss';
 
-// import {AiFillCaretDown} from "react-icons/ai";
+
 function OnChangeName(text){
   const resultsElem = document.getElementById('autocomplete-results')
   const order="";
@@ -32,7 +32,30 @@ function OnChangeName(text){
     <CharacterGridPaginated name={name} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
   );
 }
+function OnCompleteName(text){
+  const resultsElem = document.getElementById('autocomplete-results')
+  const order="";
+  const newText=text.trim();
+  const itemsPerPage=24;
+  
+  const root3 = ReactDOM.createRoot(document.getElementById('container-grid'));
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+text)
+  console.log(text)
+  const name={
+    name:newText
+  }
+  
+  if (text.length == 0){
+    resultsElem.classList.add('hidden');
+    return root3.render(
+      <CharacterGridPaginated name={text} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
+    );
+  }
 
+  root3.render(
+    <CharacterGridPaginated name={name} domain={`characters`} order={order} itemsPerPage={itemsPerPage} />, 
+  );
+}
 function OnChangeOrder(){
   const name="";
   const order={
@@ -59,9 +82,7 @@ function OnChangeOrder2(){
 export default function Filter() {
   const domain=`characters`
   const [text, setText]=useState("");
-  const [toggle, setToggle] = useState(false);
-
-  
+  const [toggle, setToggle] = useState(false);  
   const results=ItemsName({domain});
   
   const inputElem= document.getElementById("input-search");
@@ -105,11 +126,11 @@ export default function Filter() {
   })
   
   const selectItem=((e) =>{
-    if (e) {
       inputElem.value = e.innerText;
       hideResults();
-      OnChangeName(e.innerText)
-    }
+      console.log("eeeeeeeeeeeeeeeeeeeeeeeeee")
+      OnCompleteName(e.innerText)
+    
   })
   
   const hideResults=(()=> {
@@ -147,8 +168,9 @@ export default function Filter() {
         </div>
 
         <div className="container-checked-two">
-          <ButtonArrow/>
-      
+          <div className='series'>
+            <ButtonArrow/>
+          </div>      
 
           <div className='order'>
             <Dropdown isOpen={toggle} toggle={handleToggle} >

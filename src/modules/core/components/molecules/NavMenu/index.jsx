@@ -32,3 +32,4 @@ export function NavMenu() {
     </nav>
   );
 }
+export default NavMenu;
