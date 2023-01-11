@@ -3,7 +3,7 @@ import { getAndMap } from './api-rest';
 const BASE_URL = `https://gateway.marvel.com/v1/public/`;
 
 const credentials = {
-  apikey: process.env.REACT_APP_PUBLIC_KEY
+  apikey: 'ded2c2020e93cc9e9108e23a1b7f88c5'
 };
 
 export async function getAllPaginated(

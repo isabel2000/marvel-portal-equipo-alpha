@@ -6,6 +6,7 @@ import AppRoutes from './routes.js';
 function App() {
   return (
     <div>
+
       <NavMenu />
       <AppRoutes />
       <BeforeFooter />

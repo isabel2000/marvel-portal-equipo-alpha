@@ -9,7 +9,6 @@ import { getCharactersForGrid } from '../../services/character/character.api-res
     const itemsPerPage = 24;
     const name="";
     const order="";
-    console.log(domain)
     const [items, setItems] = useState([]);
     useEffect(() => {
       fetchItemsAtPage();

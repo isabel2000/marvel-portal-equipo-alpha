@@ -86,40 +86,48 @@ figcaption{
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.mvl-featuredCharacters-card-section {
-    width: 100%;
-    display: block;
-    gap: 10px;
-    grid-template-columns: repeat(6, minmax(15%, 1fr));
+.mvl-featuredCharacters-card-container{
+    width: 85%;
+    height: 450px;
+    display:block;
+    margin: auto;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+.mvl-featuredCharacters-card-section{
+    display:flex;
+    gap: 15px;
+    margin: 10px;
+
 }
 .featured-container{
     display: block;
 }
 .mvl-featuredCharacters-card{
-    display: inline-grid;
-    width: 195px;
-    height: 355px;
-    padding: 5px;
-    margin: 5px;
-    gap: 10px;
-    background: rgb(10, 10, 10);
-    color: white;
-    border-bottom-right-radius: 50px;
-    margin-bottom: 10px;
+  height: 355px;
+  width:172.33px;;
+  overflow: hidden;
+  background-color: rgb(10, 10, 10);
+  color: var(--color-accent);
+  border-color: rgb(27, 26, 26);
+  border-width: 5px;
+  border-style: solid;
+  border-bottom-right-radius: 30px;
 }
 .mvl-featuredCharacters-card__image-container{
     background: black;
-    height: 70%;
+    height: 60%;
     position: relative;
     &::before{
         content: '';
         width: 100%;
-        height: 5px;
-        background: var(--color-logo);
+        height: 3px;
+        background:rgb(255, 0, 0); // raya que baja 
         position: absolute;
-        top: -5px;
+        bottom: -5px;
         z-index: 2;
-    }
+  }
 }
 .mvl-featuredCharacters-card__image{
     width: 100%;
@@ -127,12 +135,19 @@ figcaption{
     object-fit: cover;
     object-position: left bottom;
     transform: scaleX(1);
-    cursor: pointer;
 }
 .mvl-featuredCharacters-card__body{
     padding: var(--space-sm);
-    height: 0px;
 }
+
+.mvl-featuredCharacters-card__body h5{
+  font-size: 16px;
+  color:whitesmoke;
+  padding: 5px;
+  font-weight: 200;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 .mvl-featuredCharacters-card:hover{
     .mvl-featuredCharacters-card__image{
         transform: scale(1.05);
@@ -146,3 +161,18 @@ figcaption{
         transition: 0.3s ease-in-out ;
     }
 }
+
+
+
+.mvl-items-page-header {
+    background-image: url('/assets/images/characters_banner.jpeg');
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 0 10px 10px rgba(8, 8, 8, 0.24);
+    margin-top: 10px;
+  }

@@ -10,7 +10,7 @@ export async function getCharatersAtPage(
   name,
   itemsPerPage,
   { mappedBy , queryParams = {}}
-) { console.log(itemsPerPage)
+) { 
   return getAllPaginated(domain, page,name, order, {
     mappedBy,
     itemsPerPage,
